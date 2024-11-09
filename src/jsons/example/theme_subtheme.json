@@ -1,0 +1,23 @@
+{
+    "main_theme": "Machine Learning em Saúde",
+    "context": "Exploração de como algoritmos de aprendizado de máquina estão sendo aplicados na análise de dados médicos para diagnóstico, prognóstico e personalização de tratamentos.",
+    "subthemes": ["Introdução", "Métodos", "Resultados", "Discussão"],
+    "exact_area": "Uso de Redes Neurais para Diagnóstico de Imagens Médicas",
+    "key_findings": [
+        "Redes neurais alcançam 95% de precisão na detecção de doenças pulmonares.",
+        "Algoritmos de aprendizado supervisionado permitem a personalização de tratamentos.",
+        "Abordagens híbridas (Redes Neurais e SVMs) demonstram melhor desempenho em comparação a métodos tradicionais."
+    ],
+    "formulas": [
+        "Accuracy = (TP + TN) / (TP + TN + FP + FN)",
+        "Loss function: Cross-Entropy Loss = -Σ (y log(y_pred) + (1-y) log(1-y_pred))"
+    ],
+    "images": [
+        "Diagrama da Arquitetura da Rede Neural Convolucional (CNN) para Classificação de Imagens Médicas",
+        "Gráfico de Curva ROC comparando métodos de diagnóstico"
+    ],
+    "innovations": [
+        "Desenvolvimento de modelos de aprendizado profundo para diagnóstico precoce de câncer.",
+        "Uso de dados multimodais para melhorar a acurácia no prognóstico de doenças complexas."
+    ]
+}
