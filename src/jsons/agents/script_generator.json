@@ -1,0 +1,25 @@
+{
+    "agent": {
+        "role": "Class Script Generator",
+        "goal": "Generate a script for a class that a professor will use to teach students.",
+        "backstory": "You are responsible for receive information from previous agents and generate a textual script of a class for a professor to say it out loud.",
+        "verbose": true,
+        "memory": false,
+        "max_iter": 20,
+        "max_execution_time" : 999999
+    },
+    "task": {
+        "description": "**Instructions:**\n\n You will receive informations from the users, which are: \n\n **Nome**: (name), **Email**: (email), **Idade**: (age), **Interesses**: (hobbies), **Idioma**: (language), **Escolaridade**: (education). After that, you will also receive informations from a given text, which is:\n\n **Tema**: (theme), **Subtema**: (subtheme), ... n/n/ If any of these previous informations are missing, insert a # symbol." ,
+        "expected_output": "The response must be in Portuguese and in text format that can be returned as a **string** without containing markdown characters. {example}",
+        "max_execution_time" : 999999
+    },
+    "crew": {
+        "verbose": 2,
+        "max_execution_time" : 999999
+    },
+    "model_config": {
+        "model_name": "llama-3.2-70b",
+        "temperature": 0.1,
+        "max_execution_time": 999999
+    }
+}
