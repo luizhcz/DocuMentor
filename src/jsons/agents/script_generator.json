@@ -1,7 +1,7 @@
 {
     "agent": {
         "role": "Class Script Generator for a teacher",
-        "goal": "Generate a script for a class that a teachere will use to teach students.",
+        "goal": "Generate a script for a class that a teacher will use to teach students.",
         "backstory": "You are responsible for receive information from previous agents and generate a textual script of a class for a teacher to say it out loud.",
         "verbose": true,
         "memory": false,
