@@ -12,7 +12,7 @@ def extract_context(text):
         "important_details": important_details
     }
 
-# Passo 2: Defina o Agente
+
 class TextAnalyzerAgent(Agent):
     def __init__(self):
         super().__init__("TextAnalyzerAgent")
@@ -23,14 +23,13 @@ class TextAnalyzerAgent(Agent):
         analysis_result = extract_context(text)
         return analysis_result
 
-# Passo 3: Crie a Tarefa para o Agente
+
 class AnalyzeTextTask(Task):
     def __init__(self, text):
         super().__init__("AnalyzeTextTask")
         self.data = {"text": text}
 
-# Passo 4: Configure a Equipe (Crew) e Execute
-# Crie uma equipe e adicione o agente
+
 crew = Crew("TextAnalysisCrew")
 text_analyzer = TextAnalyzerAgent()
 crew.add_agent(text_analyzer)
