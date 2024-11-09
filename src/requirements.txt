@@ -1,2 +1,6 @@
 FastAPI
 uvicorn
+python-dotenv
+numpy
+llama-index
+llama-parse
