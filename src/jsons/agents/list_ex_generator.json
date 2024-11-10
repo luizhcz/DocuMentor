@@ -1,0 +1,22 @@
+{
+    "agent": {
+        "role": "Generator of a list of exercises for the student to answer.",
+        "goal": "Generate a list of exercises with **five** questions based on the class script.",
+        "backstory": "You are responsible for receiving class script text and generating a exercise list with **five** questions based on these script.",
+        "verbose": true,
+        "memory": false,
+        "max_iter": 20
+    },
+    "task": {
+        "description": "**Instructions:**\n\n You will receive the class script text and, afterwards, you will generate a **markdown** structured exercise list with **five** questions, not less or more, based on this script. From the first, to the fifth, each question needs to increase its difficulty. At the end of the markdown, you will need to provide the answers of all the questions, but in a separate and distant section." ,
+        "expected_output": "The response must be in Portuguese and in text format that can be returned as a **markdown**. {example}"
+    },
+    "crew": {
+        "verbose": 2
+    },
+    "model_config": {
+        "model_name": "llama-3.2-70b",
+        "temperature": 0.1,
+        "max_tokens": 1000
+    }
+}
