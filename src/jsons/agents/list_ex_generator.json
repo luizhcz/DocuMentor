@@ -10,7 +10,7 @@
     },
     "task": {
         "description": "**Instructions:**\n\n You will receive the class script text and, afterwards, you will generate a **markdown** structured exercise list with **five** questions, not less or more, based on this script. From the first, to the fifth, each question needs to increase its difficulty. At the end of the markdown, you will need to provide the answers of all the questions, but in a separate and distant section. \n\n\n\n\n\n content:{content} " ,
-        "expected_output": "The response must be in Portuguese and in text format that can be returned as a **markdown**. {example}"
+        "expected_output": "The response must be in English and in text format that can be returned as a **markdown**. {example}"
     },
     "crew": {
         "verbose": false,

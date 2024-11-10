@@ -103,8 +103,43 @@ class ProcessService:
             print(f"Error processing example from JSON: {e}")
             return None
 
+    def process_verify_list(self, content: str, agent_path: str):
+        """
+        """
+        try:
+            processed_text = self.process_text_without_example(agent_path, {"content": content })
+
+            print(f"Terminou o validador de ódio")
+
+            return processed_text
+        
+        except Exception as e:
+            print(f"Error processing example from JSON: {e}")
+            return None
 
     def process_principal_text(self, json_path: str, inputs: dict) -> dict:
+        """
+        Processes text using CrewService to create a Crew and CrewWorker for execution.
+
+        :param json_path: Path to the JSON containing the Agent, Task, and Crew configuration.
+        :param prospect_id: ID of the prospect to be added to the result.
+        :return: A dictionary containing the processed result and the prospect ID.
+        """
+        try:
+            crew = self.crew_service.create_from_json(json_path)
+            if not crew:
+                raise ValueError("Error creating Crew from JSON.")
+
+            crew_worker = CrewWorker(crew=crew)
+            result = crew_worker.process(inputs=inputs)
+
+            return result.raw
+
+        except Exception as e:
+            print(f"Error processing text: {e}")
+            raise e
+
+    def process_text_without_example(self, json_path: str, inputs: dict) -> dict:
         """
         Processes text using CrewService to create a Crew and CrewWorker for execution.
 

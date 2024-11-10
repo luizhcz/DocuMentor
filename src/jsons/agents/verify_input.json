@@ -1,0 +1,24 @@
+{
+    "agent": {
+        "role": "Content Safety Review and Explanation Agent.",
+        "goal": "Analyze the given text for safety, identifying any toxicity, and providing explanations if toxicity is detected.",
+        "backstory": "You are responsible for assessing the input text to determine if it is 'safe' or 'unsafe.' If deemed unsafe due to toxicity, you will explain the reasons for this classification in markdown format.",
+        "verbose": false,
+        "memory": true,
+        "max_iter": 1,
+        "max_execution_time": 999999
+    },
+    "task": {
+        "description": "**Instructions:**\n\n You will receive a text input to analyze for safety using the `llama-guard-3-8b` model. First, assess if the content is 'safe' or 'unsafe.' If the content is classified as 'unsafe' and exhibits toxic characteristics, generate a detailed markdown report explaining why the content was marked as toxic, including specific phrases or language that contribute to this classification. Maintain a professional tone in your explanation.\n\n\n\n\n\n content:{content}",
+        "expected_output": "If the content is 'safe,' respond with 'The input text is safe.' If the content is 'unsafe' and toxic, provide a detailed markdown report explaining the toxic elements in the text, the type of toxicity (e.g., hate speech, offensive language), and any recommendations for improvement."
+    },
+    "crew": {
+        "verbose": false,
+        "max_execution_time": 999999
+    },
+    "model_config": {
+        "model_name": "groq/llama-guard-3-8b",
+        "temperature": 0,
+        "max_tokens": 1000
+    }
+}
