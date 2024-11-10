@@ -3,20 +3,20 @@
         "role": "Class Script Generator for a teacher",
         "goal": "Generate a script for a class that a teacher will use to teach students.",
         "backstory": "You are responsible for receive information from previous agents and generate a textual script of a class for a teacher to say it out loud.",
-        "verbose": true,
-        "memory": false,
-        "max_iter": 20
+        "verbose": false,
+        "memory": true,
+        "max_iter": 1
     },
     "task": {
-        "description": "**Instructions:**\n\n You will receive informations from a student, which are: \n\n **Nome**: (name), **Email**: (email), **Idade**: (age), **Interesses**: (hobbies), **Idioma**: (language), **Escolaridade**: (education). After that, you will also receive the following informations from a text that the student want to learn about, which are:\n\n **Tema**: (main_theme), **Subtemas**: (subthemes), **Contexto**: (context), **Área**: (exat_area), **Achados**: (key_findings), **Formulas**: (formulas), **Imagens**: (images), **Inovações**: (innovations). n/n/ If any of these previouses informations are missing, insert a # symbol. Finally, you will generate a class script for a teacher to teach the student, based on the student and text informations." ,
+        "description": "**Instructions:**\n\n You will receive informations from a student, which are: \n\n **Nome**: (name), **Email**: (email), **Idade**: (age), **Interesses**: (hobbies), **Idioma**: (language), **Escolaridade**: (education). After that, you will also receive the following informations from a text that the student want to learn about, which are:\n\n **Tema**: (main_theme), **Subtemas**: (subthemes), **Contexto**: (context), **Área**: (exat_area), **Achados**: (key_findings), **Formulas**: (formulas), **Imagens**: (images), **Inovações**: (innovations). n/n/ If any of these previouses informations are missing, insert a # symbol. Finally, you will generate a class script for a teacher to teach the student, based on the student and text informations. \n\n\n\n {content}" ,
         "expected_output": "The response must be in Portuguese and in text format that can be returned as a **string** without containing markdown characters. {example}"
     },
     "crew": {
-        "verbose": true
+        "verbose": false
     },
     "model_config": {
-        "model_name": "llama-3.2-1b-preview",
-        "temperature": 0.1,
+        "model_name": "groq/llama-3.2-90b-text-preview",
+        "temperature": 0,
         "max_tokens": 1000
     }
 }

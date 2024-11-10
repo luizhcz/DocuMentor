@@ -1,4 +1,5 @@
 import json
+import re
 from workers.crew_worker import CrewWorker
 from services.crew_service import CrewService
 from utils.json_utils import JsonUtils
@@ -22,12 +23,87 @@ class ProcessService:
             
             processed_text = self.process_principal_text(agent_path, {"content": content, "example": example })
 
+            print(f"Terminou o processo principal")
+
             return processed_text
         
         except Exception as e:
             print(f"Error processing example from JSON: {e}")
             return None
+    
+    def process_script(self, content: str, agent_path: str, example_path: str):
+        """
+        """
+        try:
+            example = self._load_json(example_path)
+            if not example:
+                raise ValueError("Field 'example' not found in the JSON file.")
+            
+            processed_text = self.process_principal_text(agent_path, {"content": content, "example": example })
+
+            print(f"Terminou o processo de geração de script")
+
+            return processed_text
         
+        except Exception as e:
+            print(f"Error processing example from JSON: {e}")
+            return None
+
+    def process_list(self, content: str, agent_path: str, example_path: str):
+        """
+        """
+        try:
+            example = self._load_json(example_path)
+            if not example:
+                raise ValueError("Field 'example' not found in the JSON file.")
+            
+            processed_text = self.process_principal_text(agent_path, {"content": content, "example": example })
+
+            print(f"Terminou o processo de geração de exercicio")
+
+            return processed_text
+        
+        except Exception as e:
+            print(f"Error processing example from JSON: {e}")
+            return None
+
+    def process_analyst(self, content: str, agent_path: str, example_path: str):
+        """
+        """
+        try:
+            example = self._load_json(example_path)
+            if not example:
+                raise ValueError("Field 'example' not found in the JSON file.")
+            
+            processed_text = self.process_principal_text(agent_path, {"content": content, "example": example })
+
+            print(f"Terminou o processo da analise do script")
+
+            return processed_text
+        
+        except Exception as e:
+            print(f"Error processing example from JSON: {e}")
+            return None
+
+    def process_study_plan(self, content: str, agent_path: str, example_path: str):
+        """
+        """
+        try:
+            example = self._load_json(example_path)
+            if not example:
+                raise ValueError("Field 'example' not found in the JSON file.")
+            
+            processed_text = self.process_principal_text(agent_path, {"content": content, "example": example })
+
+            print(f"Terminou o processo de plano de estudos")
+
+            return processed_text
+        
+        except Exception as e:
+            print(f"Error processing example from JSON: {e}")
+            return None
+
+
     def process_principal_text(self, json_path: str, inputs: dict) -> dict:
         """
         Processes text using CrewService to create a Crew and CrewWorker for execution.
@@ -44,11 +120,7 @@ class ProcessService:
             crew_worker = CrewWorker(crew=crew)
             result = crew_worker.process(inputs=inputs)
 
-            if not result:
-                raise ValueError("CrewWorker processing failed, empty result.")
-
-            print(result)
-            return JsonUtils.add_to_json(result)
+            return result.raw
 
         except Exception as e:
             print(f"Error processing text: {e}")
@@ -63,6 +135,15 @@ class ProcessService:
         """
         with open(path, 'r', encoding='utf-8') as file:
             return json.load(file)
+
+    def is_json(self, string):
+        try:
+            # Tenta fazer o parsing da string como JSON
+            json.loads(string)
+        except ValueError:
+            # Se der erro, não é um JSON válido
+            return False
+        return True
 
     def _convert_result_to_string(self, result) -> str:
         """

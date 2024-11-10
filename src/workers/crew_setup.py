@@ -55,7 +55,8 @@ class CrewSetup:
             description=description,
             expected_output=expected_output,
             agent=agent,
-            max_execution_time=self.max_execution_time
+            max_execution_time=self.max_execution_time,
+            output_file='./search_text.json'
         )
 
     def create_crew(self, agents: list, tasks: list, verbose: bool) -> Crew:

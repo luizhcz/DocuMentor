@@ -35,4 +35,4 @@ class PDFService(BaseService):
         # Extrai o conteúdo em formato Markdown
         content_markdown = [doc.to_dict() for doc in documents]
         
-        return {"content": content_markdown}
+        return { "content": content_markdown }

@@ -3,20 +3,22 @@
         "role": "Study Plan Creator",
         "goal": "Design a personalized study plan based on the class content and analysis, including exercises and resources to reinforce understanding, but not generating questions.",
         "backstory": "You are an expert in instructional design, focused on creating study plans that maximize learning efficiency and engagement. Your plans are structured to help students reinforce classroom concepts and track their progress without including question generation.",
-        "verbose": true,
+        "verbose": false,
         "memory": true,
-        "max_iter": 30
+        "max_iter": 1,
+        "max_execution_time" : 999999
     },
     "task": {
         "description": "Analyze the class transcription to create a comprehensive and personalized study plan tailored to the student's needs. Give me the answer in a markdown format. The study plan should prioritize areas that require further understanding, study resources, recommendations and an 1 hour study schedule. Additionally, include ask the student to take list of exercises provided by the teacher to be completed after each class session. Ensure the plan is structured to reinforce the student's grasp of the material and track their progress effectively. \n\n ############ here is the text baseline text for you to create the study plan (make sure to generate a markdown text: {content}",
         "expected_output": "A step-by-step study plan that outlines specific topics, recommended study resources, and an 1 hour study schedule. Here is an example that you can use as reference to generate the responses: \n\n\n ######## example: \n{example}"
     },
     "crew": {
-        "verbose": 2
+        "verbose": false,
+        "max_execution_time" : 999999
     },
     "model_config": {
-        "model_name": "llama-3.2-90b-vision-preview",
-        "temperature": 0.1,
-        "max_tokens": 1000
+        "model_name": "groq/llama-3.2-90b-text-preview",
+        "temperature": 0,
+        "max_execution_time": 999999
     }
 }

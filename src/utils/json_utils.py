@@ -6,23 +6,29 @@ class JsonUtils:
     def add_to_json(json_data):
         """
         Updates a JSON object with a new entry. Accepts a JSON string or a dictionary as input.
-
+        Ensures the output JSON string has double quotes.
+        
         :param json_data: JSON string or dictionary.
-        :param new_obj: Dictionary with new data to be inserted into the JSON.
-        :return: Updated JSON string or an error message.
+        :return: Updated JSON string with double quotes or an error message.
         """
         try:
+            json_data = json_data.replace("'", '"')
+
             # Check if the input is a string or a dictionary
             if isinstance(json_data, str):
                 # Try to load the JSON
                 data = JsonUtils._try_load_json(json_data)
+                if data is None:
+                    return "Error: Invalid JSON format"
             elif isinstance(json_data, dict):
                 data = json_data
-                
-            # Convert back to a formatted JSON string
-            updated_json = json.dumps(data, ensure_ascii=False, indent=4)
+            else:
+                return "Error: Input must be a JSON string or dictionary"
 
+            # Convert to a formatted JSON string with double quotes
+            updated_json = json.dumps(data, ensure_ascii=False, indent=4, separators=(',', ': '))
             return updated_json
+
         except Exception as e:
             return f"Error processing JSON: {e}"
 
@@ -69,9 +75,11 @@ class JsonUtils:
         """
         try:
             # First attempt to load the JSON
-            return json.loads(json_data)
+            json_data_fixed = json_data.replace("'", '"')
+            return json.loads(json_data_fixed)
         except (ValueError, TypeError):
             try:
+                # Replaces single quotes with double quotes and tries again
                 json_data_fixed = json_data.replace("'", '"')
                 return json.loads(json_data_fixed)
             except (ValueError, TypeError):
