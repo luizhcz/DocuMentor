@@ -46,7 +46,7 @@ async def upload_pdf(file: UploadFile = File(...)):
         )
 
         print("Processamento concluído com sucesso.")
-        return processed_data
+        return {"message": "Image processed", "details": processed_data } 
     
     except HTTPException as http_exc:
         print("Erro HTTP:", http_exc.detail)
