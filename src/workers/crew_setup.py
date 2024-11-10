@@ -1,5 +1,5 @@
 from crewai import Agent, Task, Crew
-from langchain_openai import ChatOpenAI
+from langchain_groq import ChatGroq
 
 class CrewSetup:
     def __init__(self, model_name: str = "gpt-4o-mini", temperature: float = 0.1, max_execution_time: int = 999999):
@@ -26,8 +26,11 @@ class CrewSetup:
         :param max_iter: Maximum number of iterations the agent can perform.
         :return: Configured instance of Agent.
         """
-        llm = ChatOpenAI(model_name=self.model_name, temperature=self.temperature)
-        
+        llm = ChatGroq(
+            model_name=self.model_name, 
+            temperature=self.temperature, 
+            api_key='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')
+
         return Agent(
             role=role,
             goal=goal,
@@ -55,7 +58,7 @@ class CrewSetup:
             max_execution_time=self.max_execution_time
         )
 
-    def create_crew(self, agents: list, tasks: list, verbose: int = 2) -> Crew:
+    def create_crew(self, agents: list, tasks: list, verbose: bool) -> Crew:
         """
         Creates and returns an instance of Crew with configured agents and tasks.
 

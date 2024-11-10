@@ -12,10 +12,10 @@
         "expected_output": "The response must be in Portuguese and in text format that can be returned as a **string** without containing markdown characters. {example}"
     },
     "crew": {
-        "verbose": 2
+        "verbose": true
     },
     "model_config": {
-        "model_name": "llama-3.2-70b",
+        "model_name": "llama-3.2-1b-preview",
         "temperature": 0.1,
         "max_tokens": 1000
     }

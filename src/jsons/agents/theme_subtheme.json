@@ -5,28 +5,21 @@
         "backstory": "You analyze the input text, distilling the main theme, subtheme, specific focus, key findings, theories, and any innovations for further processing.",
         "verbose": true,
         "memory": true,
-        "max_iter": 30
+        "max_iter": 20,
+        "max_execution_time" : 999999
     },
     "task": {
-        "description": "Given a Markdown scientific text input, extract and concisely structure the essential elements: the main theme, context, subthemes, specific focus, key findings, formulas, image descriptions, and innovations. Each extracted element should be accurately categorized to support structured lecture generation and facilitate the creation of teaching modules. The main theme should capture the broad topic, the context should summarize background and objectives, subthemes should reflect key sections, and the specific focus should pinpoint the exact area addressed. Key findings should highlight conclusions and innovations, while formulas and image descriptions should include explanations when applicable. Ensure outputs are clear, educationally relevant, and coherent, with null values for any information not present in the text. Prioritize clarity and relevance to enable impactful lecture planning and module creation.",
-        "expected_output": {
-            "main_theme": "Main theme as a single topic description",
-            "context": "Concise background and objective",
-            "subthemes": ["List of subthemes or sections"],
-            "exact_area": "Specific focus or theory within the main theme",
-            "key_findings": ["List of findings or insights"],
-            "formulas": ["Any formulas and explanations"],
-            "images": ["Descriptions of any images or diagrams"],
-            "innovations": ["List of innovative ideas or applications"]
-        },
-        "max_execution_time": 999999
+        "description": "Given a Markdown scientific text input, extract and concisely structure the essential elements: the main theme, context, subthemes, specific focus, key findings, formulas, image descriptions, and innovations. Each extracted element should be accurately categorized to support structured lecture generation and facilitate the creation of teaching modules. The main theme should capture the broad topic, the context should summarize background and objectives, subthemes should reflect key sections, and the specific focus should pinpoint the exact area addressed. Key findings should highlight conclusions and innovations, while formulas and image descriptions should include explanations when applicable. Ensure outputs are clear, educationally relevant, and coherent, with null values for any information not present in the text. Prioritize clarity and relevance to enable impactful lecture planning and module creation.  \n\n\n\n ######### {content}",
+        "expected_output": "The return must be in Portuguese in JSON format. \n\n JSON response example: \n\n {example}",
+        "max_execution_time" : 999999
     },
     "crew": {
-        "verbose": 2
+        "verbose": true,
+        "max_execution_time" : 999999
     },
     "model_config": {
-        "model_name": "gpt-4o-mini",
+        "model_name": "groq/llama-3.2-90b-text-preview",
         "temperature": 0.1,
-        "max_tokens": 1000
+        "max_execution_time": 999999
     }
 }

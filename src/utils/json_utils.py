@@ -3,7 +3,7 @@ import json
 class JsonUtils:
     
     @staticmethod
-    def add_to_json(json_data, new_obj):
+    def add_to_json(json_data):
         """
         Updates a JSON object with a new entry. Accepts a JSON string or a dictionary as input.
 
@@ -18,10 +18,7 @@ class JsonUtils:
                 data = JsonUtils._try_load_json(json_data)
             elif isinstance(json_data, dict):
                 data = json_data
-
-            # Update the dictionary with the new object
-            data.update(new_obj)
-
+                
             # Convert back to a formatted JSON string
             updated_json = json.dumps(data, ensure_ascii=False, indent=4)
 
