@@ -66,4 +66,4 @@ We welcome contributions! Please feel free to submit pull requests or raise issu
 
 ## Contact
 
-For more information or inquiries, contact us at [your-email@example.com].
+For more information or inquiries, contact us at [prcpedro@hotmail.com].
